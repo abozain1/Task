@@ -10,15 +10,14 @@
       //creating the url
       const zip =document.getElementById('zip').value;
       const feedback=document.getElementById('feelings').value;
-      const url =base+zip+'&appid='+apikey;
+      const url =base+zip+'&units=metric&appid='+apikey;
       
       
       //fetching temprature
       const result = await fetch(url);
       const data = await result.json();
-      const cels=data.main.temp- 273.15
-      const temprature=parseInt(cels);
-      const combined={date:newDate,feed:feedback,temp:temprature,}
+      const cels=data.main.temp
+      const combined={date:newDate,feed:feedback,temp:cels,}
       
       
       
